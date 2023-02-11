@@ -2,7 +2,7 @@ const phoneInput = document.querySelector('#phoneInput')
 const phoneCheck = document.querySelector('#phoneCheck')
 const phoneResult = document.querySelector('.phoneResult')
 
-const phoneRegExp = /^\+7 \d{3} \d{3} \d{2}-\d{2}$/
+const phoneRegExp = /^\d{14}$/
 
 phoneCheck.addEventListener('click', () => {
     if (phoneRegExp.test(phoneInput.value)){
@@ -20,7 +20,10 @@ const bloc = document.querySelector('.bloc')
 
 let num = 0
 const log = () => {
-    num++
-    bloc.style.left=`${num}40px`
+    num ++
+    if (num < 450){
+        bloc.style.left=`${num}px`
+        log()
+    }
 }
 log()
